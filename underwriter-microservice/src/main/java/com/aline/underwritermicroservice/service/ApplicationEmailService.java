@@ -55,11 +55,11 @@ public class ApplicationEmailService {
         String email = primaryApplicant.getEmail();
         String name = primaryApplicant.getFirstName();
         String landingPortalUrl = appConfig.getLandingPortal();
-        String reason = String.join(", ", response.getReasons());
+        // String reason = String.join(", ", response.getReasons());
 
         Map<String, String> variables = new HashMap<>();
         variables.put("name", name);
-        variables.put("reason", reason);
+        // variables.put("reason", reason);
         variables.put("landingPortalUrl", landingPortalUrl);
 
         emailService.sendHtmlEmail("Thank you for applying!", "application/denied-notification", email, variables);
@@ -74,11 +74,11 @@ public class ApplicationEmailService {
         String email = primaryApplicant.getEmail();
         String name = primaryApplicant.getFirstName();
         String landingPortalUrl = appConfig.getLandingPortal();
-        String reason = String.join(", ", response.getReasons());
+        // String reason = String.join(", ", response.getReasons());
 
         Map<String, String> variables = new HashMap<>();
         variables.put("name", name);
-        variables.put("reason", reason);
+        // variables.put("reason", reason);
         variables.put("landingPortalUrl", landingPortalUrl);
 
         emailService.sendHtmlEmail("Thank you for applying!", "application/pending-notification", email, variables);
