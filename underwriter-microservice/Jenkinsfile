@@ -27,8 +27,7 @@ pipeline {
         stage('Sonar Scan') {
             steps {
                 withSonarQubeEnv(installationName: 'sonarqube') {
-                  // sh 'mvn sonar:sonar'
-                  sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+                  sh 'mvn sonar:sonar'
                 }
             }
         }
@@ -71,8 +70,8 @@ pipeline {
             sh 'sudo docker logout'  // logs out of docker removing credentials
             sh 'sudo rm -rf ~/.aws/'  // logs out of aws cli removing credentials
             sh 'sudo rm -rf ~/.sonar/*'  // removes sonar cache
-            sh 'sudo rm -rf ~/jenkins/workspace/${JOB_NAME}/*'  // removes all files in job workspace
-            sh 'sudo rm -rf ~/jenkins/workspace/${JOB_NAME}/.git*'  // removes all .git files in job workspace
+            // sh 'sudo rm -rf ~/jenkins/workspace/${JOB_NAME}/*'  // removes all files in job workspace
+            // sh 'sudo rm -rf ~/jenkins/workspace/${JOB_NAME}/.git*'  // removes all .git files in job workspace
         }
     }
 
