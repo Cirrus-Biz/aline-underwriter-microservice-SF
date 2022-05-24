@@ -20,14 +20,14 @@ pipeline {
 
         stage('Build Jar') {
             steps {
-                sh 'mvn clean install'
+                sh 'sudo mvn clean install'
             }
         }
 
         stage('Sonar Scan') {
             steps {
                 withSonarQubeEnv(installationName: 'sonarqube') {
-                  sh 'mvn sonar:sonar'
+                  sh 'sudo mvn sonar:sonar'
                 }
             }
         }
