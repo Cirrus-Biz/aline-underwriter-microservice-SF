@@ -20,15 +20,14 @@ pipeline {
 
         stage('Build Jar') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true clean install'
+                sh 'mvn clean install'
             }
         }
 
         stage('Sonar Scan') {
             steps {
                 withSonarQubeEnv(installationName: 'sonarqube') {
-                  // sh 'mvn sonar:sonar'
-                  sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+                  sh 'mvn sonar:sonar'
                 }
             }
         }
