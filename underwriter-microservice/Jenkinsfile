@@ -20,7 +20,7 @@ pipeline {
 
         stage('Build Tests') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true clean test'
+                sh 'mvn test'
             }
         }
 
@@ -42,7 +42,7 @@ pipeline {
 
         stage('Build Jar') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true clean package'
+                sh 'mvn clean package'
             }
         }
 
