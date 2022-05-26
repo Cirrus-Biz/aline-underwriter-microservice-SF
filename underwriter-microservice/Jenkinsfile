@@ -18,9 +18,9 @@ pipeline {
 
     stages {
 
-        stage('Build Jar') {
+        stage('Build Tests') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true clean install'
+                sh 'mvn -Dmaven.test.failure.ignore=true clean test'
             }
         }
 
@@ -39,6 +39,13 @@ pipeline {
                 }
             }
         }
+
+        stage('Build Jar') {
+            steps {
+                sh 'mvn -Dmaven.test.failure.ignore=true clean package'
+            }
+        }
+
 
         stage('Build Docker Image Tagged For ECR') {
             steps {
